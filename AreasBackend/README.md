@@ -1,9 +1,9 @@
 Areas Backend example
 =======
 
-This code is our example of Areas Engine. It is a Flask application (https://www.djangoproject.com/) that creates a RESTful backend to store microblogging posts.
+This is the Areas services that creates a RESTful backend to store Area.
 
-**THIS IS AN EXAMPLE WEBSITE**
+**THIS IS Area Api**
 
 Set it up
 ------

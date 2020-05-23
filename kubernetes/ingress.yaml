@@ -1,0 +1,15 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: areas-backend-ingress
+    namespace: blog
+spec:
+    rules:
+        - host: areas.blog.local
+          http:
+            paths:
+              - backend:
+                  serviceName: areas-service
+                  servicePort: 80
+                path: /

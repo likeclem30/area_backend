@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: areas-backend
+    labels:
+        app: areas-backend
+    namespace: blog
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: areas-backend
+    template:
+        metadata:
+            labels:
+                app: areas-backend
+        spec:
+            containers:
+                - name: areas-backend-service
+                  image: areas_server:latest
+                  imagePullPolicy: Never
+                  ports:
+                     - containerPort: 7000
+                  env:
+                      - name: DATABASE_ENGINE
+                        value: POSTGRESQL
+                      - name: POSTGRES_DB
+                        value: areas
+                      - name: POSTGRES_USER
+                        value: postgres
+                      - name: POSTGRES_PASSWORD
+                        value: somepassword
+                      - name: POSTGRES_PORT
+                        value: "5432"
+                      - name: POSTGRES_HOST
+                        value: "127.0.0.1"
+
+                - name: areas-backend-db
+                  image: areas_backend_db:latest
+                  imagePullPolicy: Never
